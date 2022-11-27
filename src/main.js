@@ -1,4 +1,4 @@
-import { shade, draw } from "./art/fire.js";
+import { shade, draw } from "./art/metaballs.js";
 
 let size = 256;
 let app = document.querySelector("#app");
