@@ -18,7 +18,7 @@ function shade(x, y, t) {
     //❓❓ Question 2
     //❓❓ Question 3
     //❓❓ Question 4
-    return [1,0,1];
+    return [x, y, Math.sin(t)];
 }
 
 /**
@@ -32,7 +32,7 @@ function draw(ctx, t) {
     ctx.strokeStyle = 'black';
     //❓❓ Question 5
     //❓❓ Question 6
-    ctx.strokeRect(75, 100, 150, 100);
+    ctx.strokeRect(75, 100, 150 + 10 * Math.sin(t), 100 + 10 * Math.cos(t)); 
 }
 
 export default { name: "My Homework", shade, draw }
