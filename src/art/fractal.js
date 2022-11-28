@@ -1,7 +1,7 @@
 import Complex from "complex";
 import { hsl, gray } from "../color.js";
 
-function mandlebrot(x, y, t) {
+function shade(x, y, t) {
     x = (x - .7) * 3;
     y = (y - .5) * 3;
     let c = new Complex(x, y);
@@ -16,11 +16,8 @@ function mandlebrot(x, y, t) {
     return [0, 0, 0];
 }
 
-function empty(){
+function draw(){
 
 }
 
-export {
-    mandlebrot as shade,
-    empty as draw
-}
+export default { name: "Mandelbrot", shade, draw }

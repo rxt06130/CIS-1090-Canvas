@@ -5,6 +5,10 @@ html {
   box-sizing: inherit;
 }
 
+#app {
+  margin: 50px;
+}
+
 body {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   text-align: center;

@@ -2,12 +2,13 @@ import { makeNoise3D } from "fast-simplex-noise";
 import { hsl, gray } from "../color.js";
 
 let n = makeNoise3D();
-function fire(x, y, t) {
+
+function shade(x, y, t) {
     let v = n(x * 3, y * 3, t) * .25 + n(x, y, t / 2) * .75;
     return hsl(Math.abs(v / 6), 1, v + Math.pow(y, 5));
 }
 
-function smile(ctx, t) {
+function draw(ctx, t) {
     function circle(x, y, r) {
         ctx.beginPath();
         ctx.arc(x, y, r, 0, 2 * Math.PI);
@@ -34,7 +35,4 @@ function smile(ctx, t) {
     ctx.fill();
 }
 
-export {
-    fire as shade,
-    smile as draw
-}
+export default { name: "Everything is Fine", shade, draw }
