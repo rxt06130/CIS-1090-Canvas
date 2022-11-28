@@ -1,13 +1,30 @@
 import { makeNoise3D } from "fast-simplex-noise";
 import { hsl, gray } from "../color.js";
 
+//This is a source of "Noise" or random-ish values
+//See https://en.wikipedia.org/wiki/Simplex_noise
+//I use 3d noise so I can animate the fire, x, y, time.
 let n = makeNoise3D();
 
+//Draw sone fire 🔥
 function shade(x, y, t) {
-    let v = n(x * 3, y * 3, t) * .25 + n(x, y, t / 2) * .75;
-    return hsl(Math.abs(v / 6), 1, v + Math.pow(y, 5));
+
+    //Compute a fire brightness for the pixel
+    let v = 0;
+    //75% low frequency noise
+    v = v + n(x, y, t / 2) * .75;
+    //25% higher frequency noise
+    v = v + n(x * 3, y * 3, t) * .25;
+    
+    //HSL is another way to represent colors...
+    return hsl(
+        Math.abs(v / 6),    //Hue, lower values are red-ish
+        1,                  //Saturation - very red
+        v + Math.pow(y, 5)  //Lightness - how bright
+    );
 }
 
+//This function just draws a smily face 😊
 function draw(ctx, t) {
     function circle(x, y, r) {
         ctx.beginPath();

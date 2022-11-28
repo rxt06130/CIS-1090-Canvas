@@ -1,9 +1,13 @@
 import Complex from "complex";
 import { hsl, gray } from "../color.js";
 
+//If you are into math, this is the Mandelbrot fractal.
 function shade(x, y, t) {
+    //Re-scale x and y so we are centered on 0,0 and zoomed out
     x = (x - .7) * 3;
     y = (y - .5) * 3;
+
+    //Google mandelbrot set if you are curious
     let c = new Complex(x, y);
     let z = new Complex(x, y);
     let i;
@@ -17,7 +21,7 @@ function shade(x, y, t) {
 }
 
 function draw(){
-
+    //Nothing to do here
 }
 
 export default { name: "Mandelbrot", shade, draw }
