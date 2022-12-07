@@ -15,11 +15,8 @@ let n = makeNoise3D();
  * @returns The RGB color to display at the x,y location at time t
  */
 function shade(x, y, t) {
-  return [0,0,y];
-    // return [
-     //   Math.sin(t*10 + 20*x),
-       // Math.cos(t*10 + 20*y),
-        //0];
+  
+        return [0, 0, Math.cos(t*2 + 1*y)]
 }
 
 /**
